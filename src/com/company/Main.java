@@ -27,5 +27,11 @@ public class Main {
 
         Car passeratti = new Car("Volksvawgen", "Passat", 1998, 1.9, "silver");
         me.vehicle = passeratti;
+        me.setSalary(2500.0);
+        me.getSalary();
+        me.setSalary(-2599.0);
+        me.getSalary();
+        me.setSalary(15000.0);
+        me.getSalary();
     }
 }
