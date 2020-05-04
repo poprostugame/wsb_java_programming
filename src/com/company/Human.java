@@ -9,7 +9,7 @@ public class Human {
     String lastName;
     Phone phone;
     Animal pet;
-    Car vehicle;
+    private Car vehicle;
     private Double salary;
     List<String> dateOfGettingSalary = new ArrayList<>();
 
@@ -35,4 +35,23 @@ public class Human {
         }
     }
 
+    public void getVehicle() {
+        System.out.println(vehicle.mark + " " +
+                vehicle.model + " " +
+                vehicle.yearOfProduction);
+//        return vehicle;
+    }
+
+    public void setVehicle(Car vehicle) {
+        if(salary > vehicle.value){
+            System.out.println("You just buy this car for a cash");
+            this.vehicle = vehicle;
+        }
+        else if( salary > (1.0/12.0 * vehicle.value))
+        {
+            System.out.println("Bank just buy this car for you.. credit credit credit");
+            this.vehicle = vehicle;
+        }
+        else System.out.println("Change your job you're too poor");
+    }
 }

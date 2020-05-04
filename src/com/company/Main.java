@@ -25,13 +25,20 @@ public class Main {
             me.pet.takeForAWalk();
         } while (me.pet.imDead());
 
-        Car passeratti = new Car("Volksvawgen", "Passat", 1998, 1.9, "silver");
-        me.vehicle = passeratti;
+        Car passeratti = new Car("Volksvawgen", "Passat", 1998, 1.9, "silver",50000.0);
+
         me.setSalary(2500.0);
         me.getSalary();
         me.setSalary(-2599.0);
         me.getSalary();
-        me.setSalary(15000.0);
+        me.setSalary(3500.0);
         me.getSalary();
+        me.setVehicle(passeratti);
+        Car corsze = new Car("Opel","Corsa",2000,1.0,"black",4500.0);
+        me.setVehicle(corsze);
+        me.getVehicle();
+        Car cienias = new Car("Fiat", "Cinquecento", 1995,0.6,"pink",500.0);
+        me.setVehicle(cienias);
+        me.getVehicle();
     }
 }
