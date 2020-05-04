@@ -24,5 +24,8 @@ public class Main {
         do {
             me.pet.takeForAWalk();
         } while (me.pet.imDead());
+
+        Car passeratti = new Car("Volksvawgen", "Passat", 1998, 1.9, "silver");
+        me.vehicle = passeratti;
     }
 }
