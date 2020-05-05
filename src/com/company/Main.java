@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -40,5 +43,18 @@ public class Main {
         Car cienias = new Car("Fiat", "Cinquecento", 1995,0.6,"pink",500.0);
         me.setVehicle(cienias);
         me.getVehicle();
+
+        Car corszeV2 = new Car("Opel","Corsa",2000,1.0,"black",4500.0);
+        System.out.println(corsze==corszeV2);
+        System.out.println(corsze.equals(corszeV2));
+        System.out.println(corsze);
+        System.out.println(corszeV2);
+
+        Phone siao = new Phone("Xiaomi","Mi 10");
+        System.out.println(corsze);
+        System.out.println(me);
+        System.out.println(dog);
+        System.out.println(siao);
+
     }
 }

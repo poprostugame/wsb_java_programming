@@ -9,21 +9,21 @@ public class Animal {
     public String name;
     File pic;
 
-    public static final Double DEAFAULT_DOG_WEIGHT = 10.0;
-    public static final Double DEAFAULT_MOUSE_WEIGHT = 0.01;
-    public static final Double DEAFAULT_LION_WEIGHT = 123.0;
+    public static final Double DEFAULT_DOG_WEIGHT = 10.0;
+    public static final Double DEFAULT_MOUSE_WEIGHT = 0.01;
+    public static final Double DEFAULT_LION_WEIGHT = 123.0;
 
     public Animal(String species) {
         this.species = species;
         switch (species) {
             case "dog":
-                this.weight = DEAFAULT_DOG_WEIGHT;
+                this.weight = DEFAULT_DOG_WEIGHT;
                 break;
             case "mouse":
-                this.weight = DEAFAULT_MOUSE_WEIGHT;
+                this.weight = DEFAULT_MOUSE_WEIGHT;
                 break;
             case "lion":
-                this.weight = DEAFAULT_LION_WEIGHT;
+                this.weight = DEFAULT_LION_WEIGHT;
                 break;
         }
     }
@@ -58,5 +58,8 @@ public class Animal {
         } else {
             return true;
         }
+    }
+    public String toString(){
+        return this.name + " " + this.species + " " + this.weight;
     }
 }

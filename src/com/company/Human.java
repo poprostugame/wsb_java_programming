@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,5 +56,8 @@ public class Human {
             this.vehicle = vehicle;
         }
         else System.out.println("Change your job you're too poor");
+    }
+    public String toString(){
+        return this.firstName + " " + this.lastName;
     }
 }
