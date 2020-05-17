@@ -2,7 +2,7 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
-public class Car extends Device{
+abstract public class Car extends Device{
     public final String mark;
     public final String model;
     public final Double engineCapacity;
@@ -20,6 +20,9 @@ public class Car extends Device{
         this.value = value;
 
     }
+
+    public abstract void reFuel();
+
     @Override
     public String toString(){
         return this.mark + " " +

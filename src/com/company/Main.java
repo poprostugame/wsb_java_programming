@@ -5,7 +5,11 @@ import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.Electric;
 import com.company.devices.Phone;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -101,14 +105,34 @@ public class Main {
 //        richGuy.sell(richGuy,coolGuy,2000.0);
 //
         //EXERCISE 9
-        Pet mickey = new Pet("Mickey","mouse",20.0);
-        mickey.feed();
-        mickey.feed(300.0);
-        FarmAnimal victoria = new FarmAnimal("Victoria","cow",5000.0);
-        victoria.feed();
-        victoria.feed(300.0);
-        victoria.beEaten();
-        victoria.feed();
-        victoria.feed(300.0);
+//        Pet mickey = new Pet("Mickey","mouse",20.0);
+//        mickey.feed();
+//        mickey.feed(300.0);
+//        FarmAnimal victoria = new FarmAnimal("Victoria","cow",5000.0);
+//        victoria.feed();
+//        victoria.feed(300.0);
+//        victoria.beEaten();
+//        victoria.feed();
+//        victoria.feed(300.0);
+
+        //EXERCISE 10
+        Phone galaxy = new Phone("Samsung", "Galaxy 100",
+                "Samsung Company", "smartphone", 2020,500.0,"gmail");
+        galaxy.installAnApp("Tiktok");
+        galaxy.installAnApp("Gadu gadu", 3.4);
+        galaxy.installAnApp("Mapy", 5.4, "www.mapska.com.pl");
+        List<String> appsList = new ArrayList<>();
+        appsList.add("mms");
+        appsList.add("insta");
+        appsList.add("calc");
+        galaxy.installAnApp(appsList);
+        for (String app:galaxy.apps
+             ) {
+            System.out.println(app);
+        }
+        Electric tesla = new Electric("Tesla", "X",25.0,
+                "red",300000.0,"Tesla Motors","Electric",2020);
+        tesla.reFuel();
+
     }
 }
