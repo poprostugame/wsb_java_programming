@@ -1,11 +1,12 @@
-package com.company;
+package com.company.creatures;
+
+import com.company.salleable;
 
 import java.io.File;
-import java.sql.SQLOutput;
 
-public class Animal implements salleable{
+public abstract class Animal implements salleable,Feedable {
     final String species;
-    private Double weight; // I did it in exercise 0
+    protected Double weight; // I did it in exercise 0
     public String name;
     File pic;
     public Double value;
@@ -13,6 +14,7 @@ public class Animal implements salleable{
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 0.01;
     public static final Double DEFAULT_LION_WEIGHT = 123.0;
+    public static final Double DEFAULT_COW_WEIGHT = 500.0;
 
     public Animal(String species,Double value) {
         this.species = species;
@@ -27,10 +29,13 @@ public class Animal implements salleable{
             case "lion":
                 this.weight = DEFAULT_LION_WEIGHT;
                 break;
+            case "cow":
+                this.weight = DEFAULT_COW_WEIGHT;
+                break;
         }
     }
-
-    void feed() {
+    @Override
+    public void feed() {
         if (weight > 0.0) {
             weight++;
             System.out.println("thx for food bro, " + weight + "kg");
@@ -38,6 +43,16 @@ public class Animal implements salleable{
             System.out.println("Man! Your dog is dead you cannot feed him");
         }
     }
+    @Override
+    public void feed(Double foodWeight){
+        if (weight > 0.0) {
+            weight += foodWeight;
+            System.out.println("thx for food bro, " + weight + "kg");
+        } else {
+            System.out.println("Man! Your animal is dead you cannot feed him");
+        }
+    }
+
 
     void takeForAWalk() {
         if (weight > 0.0) {

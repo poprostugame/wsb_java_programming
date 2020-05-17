@@ -1,13 +1,14 @@
-package com.company;
+package com.company.creatures;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import com.company.salleable;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Human implements salleable{
+public class Human implements salleable {
     String firstName;
     String lastName;
     public Phone phone;
