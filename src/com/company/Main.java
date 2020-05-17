@@ -58,15 +58,44 @@ public class Main {
 //        System.out.println(siao);
 
         // EXERCISE 7
-        Device octavia = new Car("Skoda","Octavia",1.6,"yellow",1500.0,
-                "Volkswagen AG","sedan",1998);
-        System.out.println(octavia);
-        octavia.turnOn();
+//        Device octavia = new Car("Skoda","Octavia",1.6,"yellow",1500.0,
+//                "Volkswagen AG","sedan",1998);
+//        System.out.println(octavia);
+//        octavia.turnOn();
+//
+//        Device galaxy = new Phone("Samsung", "Galaxy 100",
+//                "Samsung Company", "smartphone", 2020);
+//        System.out.println(galaxy);
+//        galaxy.turnOn();
 
-        Device galaxy = new Phone("Samsung", "Galaxy 100",
-                "Samsung Company", "smartphone", 2020);
-        System.out.println(galaxy);
-        galaxy.turnOn();
+        //EXERCISE 8
+        Human coolGuy = new Human();
+        coolGuy.firstName="Jack";
+        coolGuy.lastName="Cake";
+        coolGuy.cash = 1000.0;
+        Animal rocky = new Animal("dog",200.0);
+        rocky.name = "Rocky";
+        Car octavia = new Car("Skoda","Octavia",1.6,"yellow",1500.0,
+                "Volkswagen AG","sedan",1998);
+        coolGuy.pet = rocky;
+        coolGuy.setVehicle(octavia);
+        Phone galaxy = new Phone("Samsung", "Galaxy 100",
+                "Samsung Company", "smartphone", 2020,500.0);
+        Human richGuy = new Human();
+        richGuy.firstName = "Bill";
+        richGuy.lastName = "Gates";
+        richGuy.cash = 2000.0;
+        richGuy.phone=galaxy;
+
+        galaxy.sell(coolGuy,richGuy,100.0);
+        galaxy.sell(richGuy,coolGuy,5000.0);
+        galaxy.sell(richGuy,coolGuy,100.0);
+        rocky.sell(coolGuy,richGuy,200.0);
+        octavia.sell(coolGuy,richGuy,3000.0);
+        octavia.sell(richGuy,coolGuy,100.0);
+        octavia.sell(coolGuy,richGuy,1000.0);
+
+        richGuy.sell(richGuy,coolGuy,2000.0);
 
 
     }

@@ -3,18 +3,20 @@ package com.company;
 import java.io.File;
 import java.sql.SQLOutput;
 
-public class Animal {
+public class Animal implements salleable{
     final String species;
     private Double weight; // I did it in exercise 0
     public String name;
     File pic;
+    public Double value;
 
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 0.01;
     public static final Double DEFAULT_LION_WEIGHT = 123.0;
 
-    public Animal(String species) {
+    public Animal(String species,Double value) {
         this.species = species;
+        this.value = value;
         switch (species) {
             case "dog":
                 this.weight = DEFAULT_DOG_WEIGHT;
@@ -53,7 +55,7 @@ public class Animal {
     }
     boolean imDead() {
         if (weight <= 0.0) {
-            System.out.println("Mum always said \"Remeber to feed the dog\"");
+            System.out.println("Mum always said \"Remember to feed the dog\"");
             return false;
         } else {
             return true;
@@ -62,4 +64,22 @@ public class Animal {
     public String toString(){
         return this.name + " " + this.species + " " + this.weight;
     }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price){
+        if(seller.pet == this)
+        {
+            if(buyer.cash >= price)
+            {
+                buyer.cash = buyer.cash - price;
+                seller.cash = seller.cash + price;
+                buyer.pet = this;
+                seller.pet = null;
+                System.out.println(buyer + " just buy " + this);
+            }
+            else System.out.println(buyer + " don't have enough money.");
+        }
+        else System.out.println("This is not he's animal!");
+    }
+
 }
