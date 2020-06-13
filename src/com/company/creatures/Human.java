@@ -59,8 +59,8 @@ public class Human implements salleable {
     }
 
     public void setCar(Car vehicle, Integer garagePosition) {
-
-        garage[garagePosition] = vehicle;
+        this.garage[garagePosition] = vehicle;
+        vehicle.owners.add(this);
     }
 
     public String toString() {

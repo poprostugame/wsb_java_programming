@@ -135,14 +135,49 @@ public class Main {
 
 
         //EXERCISE 11
+//        Phone samsung = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
+//                2019, 2500.0, "gmail");
+//        Animal york = new Pet("Rocky", "dog", 100.0);
+//        Human john = new Human("John", "Smith", samsung, york, 3);
+//        Human elizabeth = new Human("Elizabeth", "Smith", samsung, york, 1);
+//        Human sam = new Human();
+//        sam.firstName = "Sam";
+//        sam.lastName = "Kowalski";
+//        Diesel passerati = new Diesel("Volkswagen", "Passat", 1.9,
+//                "pink", 2500.0, "VAG", "kombi", 1998);
+//        Electric teslax = new Electric("Tesla", "X", 0.0,
+//                "black", 250000.0, "Musk", "sport", 2019);
+//
+//        LPG tico = new LPG("Deawoo", "Tico", 0.9,
+//                "green", 500.0, "Deawoo", "city", 1995);
+//        john.setCar(passerati,2);
+//        john.setCar(teslax,0);
+//        sam.setCar(tico,0);
+//        john.getCar(0);
+//        Double garageValue = john.garageValue();
+//        System.out.println(garageValue + "$");
+//
+//        sam.setCar(passerati,0);
+//        sam.setCar(tico,1);
+//        System.out.println(Arrays.toString(sam.garage));
+//        sam.garageNewOrder();
+//        System.out.println(Arrays.toString(sam.garage));
+//
+//        john.cash = 100.0;
+//        elizabeth.cash = 20000.0;
+//
+//        passerati.sell(john,elizabeth,2500.0);
+//
+//        System.out.println(Arrays.toString(john.garage));
+//        System.out.println(Arrays.toString(elizabeth.garage));
+
+        //EXERCISE 12
+
         Phone samsung = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
                 2019, 2500.0, "gmail");
         Animal york = new Pet("Rocky", "dog", 100.0);
         Human john = new Human("John", "Smith", samsung, york, 3);
         Human elizabeth = new Human("Elizabeth", "Smith", samsung, york, 1);
-        Human sam = new Human();
-        sam.firstName = "Sam";
-        sam.lastName = "Kowalski";
         Diesel passerati = new Diesel("Volkswagen", "Passat", 1.9,
                 "pink", 2500.0, "VAG", "kombi", 1998);
         Electric teslax = new Electric("Tesla", "X", 0.0,
@@ -152,24 +187,15 @@ public class Main {
                 "green", 500.0, "Deawoo", "city", 1995);
         john.setCar(passerati,2);
         john.setCar(teslax,0);
-        sam.setCar(tico,0);
-        john.getCar(0);
-        Double garageValue = john.garageValue();
-        System.out.println(garageValue + "$");
-
-        sam.setCar(passerati,0);
-        sam.setCar(tico,1);
-        System.out.println(Arrays.toString(sam.garage));
-        sam.garageNewOrder();
-        System.out.println(Arrays.toString(sam.garage));
 
         john.cash = 100.0;
         elizabeth.cash = 20000.0;
 
         passerati.sell(john,elizabeth,2500.0);
 
-        System.out.println(Arrays.toString(john.garage));
-        System.out.println(Arrays.toString(elizabeth.garage));
+        passerati.wasOwner(john);
+        passerati.wasTransaction(john,elizabeth);
+        passerati.numberOfTransactions();
 
     }
 }
