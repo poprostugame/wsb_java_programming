@@ -6,6 +6,7 @@ import javax.naming.Name;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Phone extends Device {
@@ -17,6 +18,7 @@ public class Phone extends Device {
     public Integer portNumber;
     public String versionName;
     public List<String> apps = new ArrayList<>();
+    public List<Application> applications = new ArrayList<>();
 
     public static final List<String> server = new ArrayList<>();
     public static final List<Integer> protocol = new ArrayList<>();
@@ -36,8 +38,8 @@ public class Phone extends Device {
     }
 
 
-    public Phone(String mark, String model, String producer, String mode, Integer yearOfProduction, Double value, String appName){
-    super(producer, mode, yearOfProduction, value);
+    public Phone(String mark, String model, String producer, String mode, Integer yearOfProduction, Double value, String appName) {
+        super(producer, mode, yearOfProduction, value);
         this.mark = mark;
         this.model = model;
         this.value = value;
@@ -66,8 +68,9 @@ public class Phone extends Device {
                 break;
         }
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.mark + " " + this.model;
     }
 
@@ -78,39 +81,87 @@ public class Phone extends Device {
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {
-        if(seller.phone == this)
-        {
-            if(buyer.cash >= price)
-            {
+        if (seller.phone == this) {
+            if (buyer.cash >= price) {
                 buyer.cash = buyer.cash - price;
                 seller.cash = seller.cash + price;
                 buyer.phone = this;
                 seller.phone = null;
                 System.out.println(buyer + " just buy " + this);
-            }
-            else System.out.println(buyer + " don't have enough money.");
-        }
-        else System.out.println("This is not he's phone!");
+            } else System.out.println(buyer + " don't have enough money.");
+        } else System.out.println("This is not he's phone!");
     }
-    public void installAnApp(String appName)
-    {
+
+    public void installAnApp(String appName) {
         apps.add(appName);
     }
-    public void installAnApp(String appName, Double version)
-    {
+
+    public void installAnApp(String appName, Double version) {
         apps.add(appName + " " + version);
     }
-    public void installAnApp(String appName, Double version, String serverAddress)
-    {
+
+    public void installAnApp(String appName, Double version, String serverAddress) {
         apps.add(appName + " " + version + " source" + serverAddress);
     }
-    public void installAnApp(List<String> appsList)
-    {
+
+    public void installAnApp(List<String> appsList) {
         apps.addAll(appsList);
     }
-    public void installAnnApp(URL address)
-    {
-        apps.add(address.getFile()+ " " + " protocol :" + address.getProtocol() + " source:" + address.getHost());
+
+    public void installAnnApp(URL address) {
+        apps.add(address.getFile() + " " + " protocol :" + address.getProtocol() + " source:" + address.getHost());
+    }
+
+    public void installNewApp(Human owner, Application app) {
+        if (owner.cash >= app.getPrice()) {
+            this.applications.add(app);
+            owner.cash -= app.getPrice();
+            System.out.println("Application " + app.getAppName() + " installed successfully.");
+        } else System.out.println(owner + " doesn't have enough" +
+                "money");
+    }
+
+    public Boolean isInstalledAlready(Application app) {
+        return this.applications.contains(app);
+    }
+
+    public Boolean isInstalledAlready(String appName) {
+        for (int i = 0; i < this.applications.size() - 1; i++) {
+            if (appName.equals(applications.get(i).getAppName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void freeApplications() {
+        for (Application app : this.applications) {
+            if (app.getPrice() == 0.0) {
+                System.out.println(app.getAppName());
+            }
+        }
+    }
+
+    public Double valueOfAllApplications() {
+        Double sum = 0.0;
+        for (Application app : this.applications) {
+            sum += app.getPrice();
+        }
+        return sum;
+    }
+
+    public void applicationsAlphabetical() {
+        this.applications.sort(Comparator.comparing(Application::getAppName));
+        for (Application app : this.applications) {
+            System.out.println(app.getAppName());
+        }
+    }
+
+    public void applicationsByPrice() {
+        this.applications.sort(Comparator.comparing(Application::getPrice));
+        for (Application app : this.applications) {
+            System.out.println(app.getAppName());
+        }
     }
 
 }

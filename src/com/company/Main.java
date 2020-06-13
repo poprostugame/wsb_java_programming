@@ -172,30 +172,61 @@ public class Main {
 //        System.out.println(Arrays.toString(elizabeth.garage));
 
         //EXERCISE 12
+//
+//        Phone samsung = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
+//                2019, 2500.0, "gmail");
+//        Animal york = new Pet("Rocky", "dog", 100.0);
+//        Human john = new Human("John", "Smith", samsung, york, 3);
+//        Human elizabeth = new Human("Elizabeth", "Smith", samsung, york, 1);
+//        Diesel passerati = new Diesel("Volkswagen", "Passat", 1.9,
+//                "pink", 2500.0, "VAG", "kombi", 1998);
+//        Electric teslax = new Electric("Tesla", "X", 0.0,
+//                "black", 250000.0, "Musk", "sport", 2019);
+//
+//        LPG tico = new LPG("Deawoo", "Tico", 0.9,
+//                "green", 500.0, "Deawoo", "city", 1995);
+//        john.setCar(passerati,2);
+//        john.setCar(teslax,0);
+//
+//        john.cash = 100.0;
+//        elizabeth.cash = 20000.0;
+//
+//        passerati.sell(john,elizabeth,2500.0);
+//
+//        passerati.wasOwner(john);
+//        passerati.wasTransaction(john,elizabeth);
+//        passerati.numberOfTransactions();
 
-        Phone samsung = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
+
+        //EXERCISE 13
+        Human owner = new Human();
+        owner.cash = 100.0;
+        owner.phone = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
                 2019, 2500.0, "gmail");
-        Animal york = new Pet("Rocky", "dog", 100.0);
-        Human john = new Human("John", "Smith", samsung, york, 3);
-        Human elizabeth = new Human("Elizabeth", "Smith", samsung, york, 1);
-        Diesel passerati = new Diesel("Volkswagen", "Passat", 1.9,
-                "pink", 2500.0, "VAG", "kombi", 1998);
-        Electric teslax = new Electric("Tesla", "X", 0.0,
-                "black", 250000.0, "Musk", "sport", 2019);
+        Application gmail = new Application("Mail",1.0,29.99);
+        Application map = new Application("Map",3.0,690.99);
+        Application gallery = new Application("Gallery",2.2,5.0);
+        Application bank = new Application("Banking App",11.3,0.0);
+        Application music = new Application("Music everywhere",0.5,0.0);
 
-        LPG tico = new LPG("Deawoo", "Tico", 0.9,
-                "green", 500.0, "Deawoo", "city", 1995);
-        john.setCar(passerati,2);
-        john.setCar(teslax,0);
-
-        john.cash = 100.0;
-        elizabeth.cash = 20000.0;
-
-        passerati.sell(john,elizabeth,2500.0);
-
-        passerati.wasOwner(john);
-        passerati.wasTransaction(john,elizabeth);
-        passerati.numberOfTransactions();
-
+        owner.phone.installNewApp(owner,gmail);
+        owner.phone.installNewApp(owner,map);
+        owner.phone.installNewApp(owner,gallery);
+        owner.phone.installNewApp(owner,bank);
+        owner.phone.installNewApp(owner,music);
+        if(owner.phone.isInstalledAlready(map)){
+            System.out.println("Application " + map + " is already installed");
+        } else System.out.println("Application " + map + "isn't installed on " + owner.phone);
+        if(owner.phone.isInstalledAlready("Gallery")){
+            System.out.println("Application is already installed");
+        } else System.out.println("Application isn't installed on " + owner.phone);
+        System.out.println("\n*** FREE APPS ***");
+        owner.phone.freeApplications();
+        System.out.println("\n*** ALL APS VALUE ***");
+        System.out.println(owner.phone.valueOfAllApplications());
+        System.out.println("\n*** ALPHABETICAL APPLICATIONS LIST ***");
+        owner.phone.applicationsAlphabetical();
+        System.out.println("\n** APPLICATIONS LIST SORTED BY VALUE ***");
+        owner.phone.applicationsByPrice();
     }
 }
