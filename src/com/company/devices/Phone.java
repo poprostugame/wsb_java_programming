@@ -37,7 +37,7 @@ public class Phone extends Device {
 
 
     public Phone(String mark, String model, String producer, String mode, Integer yearOfProduction, Double value, String appName){
-    super(producer, mode, yearOfProduction);
+    super(producer, mode, yearOfProduction, value);
         this.mark = mark;
         this.model = model;
         this.value = value;

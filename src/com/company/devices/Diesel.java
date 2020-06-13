@@ -9,4 +9,8 @@ public class Diesel extends Car {
     public void reFuel() {
         System.out.println("The tank is full.");
     }
+    @Override
+    public Integer getYearOfProduction() {
+        return super.yearOfProduction;
+    }
 }

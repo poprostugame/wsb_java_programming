@@ -9,4 +9,8 @@ public class Electric extends Car {
     public void reFuel() {
         System.out.println("The battery has been charged");
     }
+    @Override
+    public Integer getYearOfProduction() {
+        return super.yearOfProduction;
+    }
 }

@@ -4,16 +4,15 @@ import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.Electric;
-import com.company.devices.Phone;
+import com.company.devices.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 //        Human me = new Human();
 //        me.firstName = "Jacek";
@@ -116,23 +115,61 @@ public class Main {
 //        victoria.feed(300.0);
 
         //EXERCISE 10
-        Phone galaxy = new Phone("Samsung", "Galaxy 100",
-                "Samsung Company", "smartphone", 2020,500.0,"gmail");
-        galaxy.installAnApp("Tiktok");
-        galaxy.installAnApp("Gadu gadu", 3.4);
-        galaxy.installAnApp("Mapy", 5.4, "www.mapska.com.pl");
-        List<String> appsList = new ArrayList<>();
-        appsList.add("mms");
-        appsList.add("insta");
-        appsList.add("calc");
-        galaxy.installAnApp(appsList);
-        for (String app:galaxy.apps
-             ) {
-            System.out.println(app);
-        }
-        Electric tesla = new Electric("Tesla", "X",25.0,
-                "red",300000.0,"Tesla Motors","Electric",2020);
-        tesla.reFuel();
+//        Phone galaxy = new Phone("Samsung", "Galaxy 100",
+//                "Samsung Company", "smartphone", 2020,500.0,"gmail");
+//        galaxy.installAnApp("Tiktok");
+//        galaxy.installAnApp("Gadu gadu", 3.4);
+//        galaxy.installAnApp("Mapy", 5.4, "www.mapska.com.pl");
+//        List<String> appsList = new ArrayList<>();
+//        appsList.add("mms");
+//        appsList.add("insta");
+//        appsList.add("calc");
+//        galaxy.installAnApp(appsList);
+//        for (String app:galaxy.apps
+//             ) {
+//            System.out.println(app);
+//        }
+//        Electric tesla = new Electric("Tesla", "X",25.0,
+//                "red",300000.0,"Tesla Motors","Electric",2020);
+//        tesla.reFuel();
+
+
+        //EXERCISE 11
+        Phone samsung = new Phone("Samsung", "x2", "Samsung CO.", "smartphone",
+                2019, 2500.0, "gmail");
+        Animal york = new Pet("Rocky", "dog", 100.0);
+        Human john = new Human("John", "Smith", samsung, york, 3);
+        Human elizabeth = new Human("Elizabeth", "Smith", samsung, york, 1);
+        Human sam = new Human();
+        sam.firstName = "Sam";
+        sam.lastName = "Kowalski";
+        Diesel passerati = new Diesel("Volkswagen", "Passat", 1.9,
+                "pink", 2500.0, "VAG", "kombi", 1998);
+        Electric teslax = new Electric("Tesla", "X", 0.0,
+                "black", 250000.0, "Musk", "sport", 2019);
+
+        LPG tico = new LPG("Deawoo", "Tico", 0.9,
+                "green", 500.0, "Deawoo", "city", 1995);
+        john.setCar(passerati,2);
+        john.setCar(teslax,0);
+        sam.setCar(tico,0);
+        john.getCar(0);
+        Double garageValue = john.garageValue();
+        System.out.println(garageValue + "$");
+
+        sam.setCar(passerati,0);
+        sam.setCar(tico,1);
+        System.out.println(Arrays.toString(sam.garage));
+        sam.garageNewOrder();
+        System.out.println(Arrays.toString(sam.garage));
+
+        john.cash = 100.0;
+        elizabeth.cash = 20000.0;
+
+        passerati.sell(john,elizabeth,2500.0);
+
+        System.out.println(Arrays.toString(john.garage));
+        System.out.println(Arrays.toString(elizabeth.garage));
 
     }
 }

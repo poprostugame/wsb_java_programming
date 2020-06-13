@@ -9,4 +9,8 @@ public class LPG extends Car {
     public void reFuel() {
         System.out.println("Gas cylinder is full.");
     }
+    @Override
+    public Integer getYearOfProduction() {
+        return super.yearOfProduction;
+    }
 }
